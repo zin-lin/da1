@@ -1,0 +1,41 @@
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as plt
+
+# For Question 3: Create two visual representations illustrating the distribution of credit class
+# (e.g. good and bad) for different personal status and job status separately. To
+# do this, start by restructuring the dataset into a new data frame for each
+# condition (personal and job status) and include the total number of good and
+# bad classes for each condition. [10%]
+def q3():
+    # read file to begin with
+    df = pd.read_csv("coursework.csv")
+    plt.figure(figsize=(14, 6))
+
+    plt.hist([[df['personal_status'] == "'male div/sep'"][df['class'] == "'good'"],
+              [df['personal_status'] == "'female div/dep/mar'"][df['class'] == "'good'"],
+              [df['personal_status'] == "'male single'"][df['class'] == "'good'"],
+              [df['personal_status'] == "'male mar/wid"][df['class'] == "'good'"],
+              [df['personal_status'] == "'female single'"][df['class'] == "'good'"]],
+    label=['male div/sep', 'female div/dep/mar', 'male single', 'male mar/wid', 'female single'])
+
+    plt.legend(loc='upper right')
+    plt.xlabel('petal length')
+    plt.show()
+
+
+def print_hi(name):
+    print("Welcome!\n")
+    q3()
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
